@@ -1,0 +1,161 @@
+body {
+    background-color: #f0f7ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#userInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 98%;
+    height: 50px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#name,
+#location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#pie {
+    margin-bottom: 15px;
+    background-color: white;
+}
+
+#line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    width: 650px;
+    border-radius: 5px;
+}
+
+#typeInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text);
+    width: 500px;
+    border-radius: 5px;
+}
+
+#lineGraph {
+    background-color: #0052B4;
+    border-radius: 5px;
+}
+
+#textXP {}
+
+.ratio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#passfail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    width: 650px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+/* ********************************* */
+:root {
+    --text: black;
+    --backgroundDuv: #383838;
+    --blue: rgb(0, 82, 180);
+    --purple: #9969ff
+}
+
+.Btn {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.Btn:hover {
+    fill: var(--text)
+}
+
+#logout {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    background-image: url("../icons/logout.png");
+    background-size: cover;
+    right: 30px;
+    cursor: pointer;
+}
+
+#logout:hover {
+    height: 35px;
+    width: 35px;
+}
+
+
+
+
+
+
+
+#type {
+    margin: 5px;
+    text-align: center;
+    width: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid var(--blue);
+    border-radius: 5px;
+    background-color: var(--purple);
+    color: var(--text);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#type::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+#type:hover {
+    border-color: var(--text);
+    font-size: 18px;
+}
+
+
+
+#type option {
+    background-color: #fff;
+    color: #333;
+    padding: 10px;
+}
+
+
+
+#border {
+    width: 150px;
+    height: 150px;
+    border: solid 2px white;
+    border: conic-gradient(white 0% 50%, transparent 50% 100%);
+    border-radius: 50%;
+}
