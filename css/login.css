@@ -19,10 +19,13 @@
 input {
     all: unset;
     height: 35px;
+    max-width: 700px;
+    width: 100%;
     border: none;
     border-bottom: 1px solid black;
     margin-bottom: 20px;
     padding-left: 10px;
+    border-radius: 5px;
 }
 
 

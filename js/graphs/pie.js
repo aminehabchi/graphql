@@ -13,7 +13,11 @@ export function createPieChart(skills) {
 }
 export function createPie(arr) {
   setupSvg(arr);
-  let r = cords.height * 0.43;
+  let min = cords.height;
+  if (min > cords.width) {
+    min = cords.width;
+  }
+  let r = min * 0.43;
   let cx = cords.width / 2;
   let cy = cords.height / 2;
 
@@ -73,7 +77,7 @@ export function createPie(arr) {
       }, 400);
     });
 
-    Text(svg, newX2, newY2, angle * (i + 1), arr[i][0]);
+    Text(svg, newX2, newY2, angle * (i-start + 1), arr[i][0]);
 
     lastPointX = newX2;
     lastPointY = newY2;
@@ -88,6 +92,7 @@ export function createPie(arr) {
 }
 function setupSvg(arr) {
   svg = document.getElementById("pie");
+  cords = svg.getBoundingClientRect();
   svg.innerHTML = `
   <text id="textPercentage" x="25" y="40">What's Up</text>
         <text class="Btn" id="Prev">Prev</text>
@@ -112,14 +117,13 @@ function setupSvg(arr) {
     createPie(arr, start, end);
   });
   let h = 500;
-  let w = 650;
+  let w = cords.width;
   svg.setAttribute("height", h);
-  svg.setAttribute("width", w);
 
   Next.setAttribute("x", w - 50);
   Next.setAttribute("y", h - 10);
+
   Prev.setAttribute("x", "10");
   Prev.setAttribute("y", h - 10);
 
-  cords = svg.getBoundingClientRect();
 }

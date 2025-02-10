@@ -12,7 +12,7 @@ export function CreateCircle(percentage, name) {
   const visibleStroke = (percentage / 100) * circumference;
   const hiddenStroke = circumference - visibleStroke;
 
-  let circle = Circle(svg, radius, 75, 75, "#0052B4", "10", "none");
+  let circle = Circle(svg, radius, 75, 75, "#0052B4", "7", "#e6f1fd");
 
   circle.setAttribute("stroke-dasharray", `${visibleStroke} ${hiddenStroke}`);
   circle.setAttribute("transform", "rotate(-90 75 75)");

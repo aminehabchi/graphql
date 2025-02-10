@@ -12,8 +12,7 @@ export async function UserInfo() {
   let city = data[0].attrs.city;
   let campus = data[0].campus;
   let div = document.getElementById("userInfo");
-  div.innerHTML = ` <div id="logout"></div>
-        <span id="userName">${userName}</span>
+  div.innerHTML = `<span id="userName">${userName}</span>
         <div id="name">
             <span id="name">${firstName} , ${lastName}</span>
             <span id="time">${formatDate(data[0].createdAt)}</span>
@@ -21,7 +20,8 @@ export async function UserInfo() {
         <div id="location">
             <span>${city}</span>
             <span>${campus}</span>
-        </div>`;
+        </div>
+         <div id="logout"></div>`;
 }
 function formatDate(dateString) {
   const date = new Date(dateString);

@@ -9,7 +9,7 @@ import {
   checkpointPass,
 } from "./querys.js";
 import { recieveData } from "./fetch.js";
-import { CreateCircle } from "../graphs.js/circle.js";
+import { CreateCircle } from "../graphs/circle.js";
 export let ratio = {
   module: 0,
   Go: 0,

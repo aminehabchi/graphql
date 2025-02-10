@@ -1,15 +1,9 @@
-import { createLineGraphs } from "../graphs.js/line.js";
-import { createPieChart } from "../graphs.js/pie.js";
+import { createLineGraphs } from "../graphs/line.js";
+import { createPieChart } from "../graphs/pie.js";
 import { recieveData } from "./fetch.js";
 import { transactionQ } from "./querys.js";
-
-export async function getTransaction() {
-  let data = await recieveData(transactionQ);  
-  if (!data) {
-    return;
-  }
-  count(data);
-}
+import { rank } from "../graphs/template.js";
+import {moduleInfo} from "../graphs/moduleInfo.js"
 export let transaction = {
   module: 0,
   piscineGo: 0,
@@ -20,11 +14,26 @@ export let transaction = {
   up: 0,
   down: 0,
   xpTimeM: [],
-  xp: {},
+  rank: "",
   xpTimeJs: [],
   xpTimeGo: [],
   skills: {},
 };
+export async function getTransaction() {
+  let data = await recieveData(transactionQ);
+  if (!data) {
+    return;
+  }
+  count(data);
+  rank.forEach((element) => {
+    if (element.level > transaction.moduleLevel) {
+      return;
+    }
+    transaction.rank = element.name;
+  });
+  console.log(transaction);
+  moduleInfo(transaction.up,transaction.down,transaction.rank,transaction.module,transaction.moduleLevel)
+}
 
 function count(data) {
   transaction.skills = new Map();

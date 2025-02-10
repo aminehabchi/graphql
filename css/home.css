@@ -1,8 +1,20 @@
 body {
-    background-color: #e6f1fd;
+    background-color: #F2EFE7;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 #userInfo {
@@ -10,7 +22,7 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 98%;
+    width: 650px;
     height: 50px;
     background-color: #FFFFFF;
     border-radius: 5px;
@@ -27,6 +39,7 @@ body {
 #pie {
     margin-bottom: 15px;
     background-color: white;
+    width: 650px;
 }
 
 #line {
@@ -45,14 +58,16 @@ body {
     justify-content: space-between;
     align-items: center;
     color: var(--text);
-    width: 500px;
+    width: 90%;
     border-radius: 5px;
+    font-size: 20px;
 }
 
 #lineGraph {
     background-color: #0052B4;
     border-radius: 5px;
     margin-bottom: 15px;
+    width: 600px;
 }
 
 #textXP {}
@@ -62,6 +77,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 15px;
+    padding-top: 5px;
+
+}
+
+.value {
+    margin-top: 10px;
 }
 
 #passfail {
@@ -73,9 +95,57 @@ body {
     width: 650px;
     margin-bottom: 15px;
     padding: 5px;
+    border-radius: 5px;
 }
 
-/* ********************************* */
+#moduleInfo {
+    background-color: #FFFFFF;
+    width: 650px;
+    margin-bottom: 15px;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+.ratio span {
+    font-weight: bold;
+}
+
+
+.stats-table {
+   
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+
+}
+
+.stats-table th,
+.stats-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+.stats-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-align: center;
+}
+
+.stats-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.stats-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.stats-table td {
+    text-align: center;
+}
+
 :root {
     --text: black;
     --backgroundDuv: #383838;
@@ -91,6 +161,10 @@ body {
 
 .Btn:hover {
     fill: var(--text)
+}
+
+.shadow {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #logout {
@@ -113,12 +187,12 @@ body {
 #type {
     margin: 5px;
     text-align: center;
-    width: 150px;
+    width: 30%;
     padding: 10px;
-    font-size: 16px;
+    font-size: 20px;
     border: 2px solid var(--blue);
     border-radius: 5px;
-    background-color: var(--purple);
+    background-color: #e6f1fd;
     color: var(--text);
     appearance: none;
     -webkit-appearance: none;
@@ -157,4 +231,31 @@ body {
     border: solid 2px white;
     border: conic-gradient(white 0% 50%, transparent 50% 100%);
     border-radius: 50%;
+}
+
+
+@media (max-width: 700px) {
+    #logout {
+        position: static;
+    }
+    #passfail,
+    #moduleInfo,
+    #line,
+    #pie,
+    #userInfo {
+        width: 95%;
+        font-size: 2.5vw;
+    }
+
+    #passfail {
+        display: block;
+        justify-content: start;
+    }
+
+    #lineGraph {
+        width: 95%;
+    }
+    .stats-table {
+        font-size: 2.5vw;
+    }
 }

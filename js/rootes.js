@@ -14,7 +14,8 @@ import {
   passFailSection,
   lineSection,
   userInfoSection,
-} from "./graphs.js/template.js";
+  modulInfoSection,
+} from "./graphs/template.js";
 export const start = async () => {
   let app = document.querySelector("#app");
   if (!app) {
@@ -31,7 +32,11 @@ export const start = async () => {
     });
   } else {
     app.innerHTML =
-      userInfoSection + passFailSection + lineSection + pieSection;
+    userInfoSection +
+    modulInfoSection +
+      passFailSection +
+      lineSection +
+      pieSection;
     await getTransaction();
 
     UserInfo();

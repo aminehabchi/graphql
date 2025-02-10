@@ -77,10 +77,10 @@ export async function createLineGraphs(arr, xp, level) {
   }
 }
 function setupSvg() {
+
   svg = document.getElementById("lineGraph");
   svg.innerHTML = `<text id="textXP" x="20" y="50">Wha's Up</text>`;
   svg.setAttribute("height", "500");
-  svg.setAttribute("width", "600");
 
   cords = svg.getBoundingClientRect();
 }
