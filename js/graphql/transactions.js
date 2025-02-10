@@ -1,27 +1,14 @@
 import { createLineGraphs } from "../graphs.js/line.js";
 import { createPieChart } from "../graphs.js/pie.js";
+import { recieveData } from "./fetch.js";
 import { transactionQ } from "./querys.js";
-export async function getUserInfo() {
-  let JWT = localStorage.getItem("jwt");
 
-  let query = transactionQ;
-
-  fetch("https://learn.zone01oujda.ma/api/graphql-engine/v1/graphql", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${JWT}`,
-    },
-    body: JSON.stringify({ query }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-
-      count(data);
-    })
-    .catch((error) => {
-      console.error("Error fetching data:", error);
-    });
+export async function getTransaction() {
+  let data = await recieveData(transactionQ);  
+  if (!data) {
+    return;
+  }
+  count(data);
 }
 export let transaction = {
   module: 0,

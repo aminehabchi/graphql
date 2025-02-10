@@ -8,3 +8,5 @@ export const LoginPage = ` <h1 id="msg">Welcome to <span>Zone01 Oujda!</span></h
             <img id="iconVisibil" src="icons/visibility_on.svg">
             <button id="btnLogin" type="submit">SIGN IN</button>
         </div>`;
+
+        

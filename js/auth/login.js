@@ -20,11 +20,12 @@ export async function signin() {
 
     if (!response.ok) {
       alert(`HTTP error! Status: ${response.status}`);
+      return;
     }
 
     let data = await response.json();
     localStorage.setItem("jwt", data);
-    start()
+    start();
   } catch (error) {
     console.error("Error:", error);
     return null;

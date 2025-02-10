@@ -18,17 +18,18 @@ export function createPie(arr) {
   let cy = cords.height / 2;
 
   Circle(svg, r, cx, cy, "black", "2", "none");
-  if (end >= arr.length) {
-    end = arr.length;
+  let end2 = end;
+  if (end2 >= arr.length) {
+    end2 = arr.length;
   }
-  let angle = 360 / (end - start);
+  let angle = 360 / (end2 - start);
   let lastPointX = cx;
   let lastPointY = cy - r;
   let PathPoints = ``;
   let textPercentage = document.getElementById("textPercentage");
 
-  console.log(start, end, arr.length);
-  for (let i = start; i < end; i++) {
+  console.log(start, end2, arr.length);
+  for (let i = start; i < end2; i++) {
     let line = Line(svg, cx, cy, lastPointX, lastPointY, "black", 1);
 
     line.setAttribute("transform", `rotate(${angle} ${cx} ${cy})`);
@@ -85,7 +86,6 @@ export function createPie(arr) {
   path.style.opacity = "90%";
   svg.appendChild(path);
 }
-
 function setupSvg(arr) {
   svg = document.getElementById("pie");
   svg.innerHTML = `

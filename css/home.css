@@ -1,5 +1,5 @@
 body {
-    background-color: #f0f7ff;
+    background-color: #e6f1fd;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,6 +36,7 @@ body {
     background-color: #FFFFFF;
     width: 650px;
     border-radius: 5px;
+    margin-bottom: 15px;
 }
 
 #typeInfo {
@@ -51,6 +52,7 @@ body {
 #lineGraph {
     background-color: #0052B4;
     border-radius: 5px;
+    margin-bottom: 15px;
 }
 
 #textXP {}
@@ -77,13 +79,14 @@ body {
 :root {
     --text: black;
     --backgroundDuv: #383838;
-    --blue: rgb(0, 82, 180);
+    --blue: #0052B4;
     --purple: #9969ff
 }
 
 .Btn {
     text-decoration: underline;
     cursor: pointer;
+    fill: var(--blue);
 }
 
 .Btn:hover {
@@ -94,7 +97,7 @@ body {
     height: 32px;
     width: 32px;
     position: absolute;
-    background-image: url("../icons/logout.png");
+    background-image: url("../icons/logout.svg");
     background-size: cover;
     right: 30px;
     cursor: pointer;
@@ -104,10 +107,6 @@ body {
     height: 35px;
     width: 35px;
 }
-
-
-
-
 
 
 

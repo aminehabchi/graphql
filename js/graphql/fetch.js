@@ -15,6 +15,7 @@ export async function recieveData(query) {
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
+      return undefined;
     }
 
     const data = await response.json();

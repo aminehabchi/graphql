@@ -1,4 +1,5 @@
 import { Circle } from "./svg.js";
+
 export function CreateCircle(percentage, name) {
   let container = document.getElementById("passfail");
 
@@ -11,13 +12,8 @@ export function CreateCircle(percentage, name) {
   const visibleStroke = (percentage / 100) * circumference;
   const hiddenStroke = circumference - visibleStroke;
 
-  let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-  circle.setAttribute("cx", "75");
-  circle.setAttribute("cy", "75");
-  circle.setAttribute("r", radius);
-  circle.setAttribute("fill", "none");
-  circle.setAttribute("stroke", "#0052B4");
-  circle.setAttribute("stroke-width", "10");
+  let circle = Circle(svg, radius, 75, 75, "#0052B4", "10", "none");
+
   circle.setAttribute("stroke-dasharray", `${visibleStroke} ${hiddenStroke}`);
   circle.setAttribute("transform", "rotate(-90 75 75)");
   svg.style.width = "150px";
@@ -29,10 +25,10 @@ export function CreateCircle(percentage, name) {
   text.setAttribute("y", "80");
   text.setAttribute("font-size", "18");
   text.setAttribute("fill", "black");
-  text.textContent = percentage.toFixed(2).toString()+"%";
+  text.textContent = percentage.toFixed(2).toString() + "%";
 
   ///////
-  svg.appendChild(text)
+  svg.appendChild(text);
   div.appendChild(svg);
   div.innerHTML += `<span>${name}</span>`;
   container.appendChild(div);
