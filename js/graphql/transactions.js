@@ -3,7 +3,7 @@ import { createPieChart } from "../graphs/pie.js";
 import { recieveData } from "./fetch.js";
 import { transactionQ } from "./querys.js";
 import { rank } from "../graphs/template.js";
-import {moduleInfo} from "../graphs/moduleInfo.js"
+import { moduleInfo } from "../graphs/moduleInfo.js";
 export let transaction = {
   module: 0,
   piscineGo: 0,
@@ -20,6 +20,21 @@ export let transaction = {
   skills: {},
 };
 export async function getTransaction() {
+  transaction = {
+    module: 0,
+    piscineGo: 0,
+    piscineJs: 0,
+    moduleLevel: 0,
+    jsLevel: 0,
+    goLevel: 0,
+    up: 0,
+    down: 0,
+    xpTimeM: [],
+    rank: "",
+    xpTimeJs: [],
+    xpTimeGo: [],
+    skills: {},
+  };
   let data = await recieveData(transactionQ);
   if (!data) {
     return;
@@ -32,7 +47,13 @@ export async function getTransaction() {
     transaction.rank = element.name;
   });
   console.log(transaction);
-  moduleInfo(transaction.up,transaction.down,transaction.rank,transaction.module,transaction.moduleLevel)
+  moduleInfo(
+    transaction.up,
+    transaction.down,
+    transaction.rank,
+    transaction.module,
+    transaction.moduleLevel
+  );
 }
 
 function count(data) {
@@ -81,7 +102,7 @@ function assign(element) {
     case "xp":
       let projectName = element.path.split("/").pop();
 
-      if (element.path == "/oujda/module/piscine-js") {
+      if (element.path === "/oujda/module/piscine-js") {
         transaction.xpTimeM.push([
           projectName,
           element.amount,

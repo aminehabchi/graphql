@@ -202,7 +202,6 @@ body {
 }
 
 #type::after {
-    content: '▼';
     position: absolute;
     right: 10px;
     top: 50%;
@@ -222,7 +221,6 @@ body {
     color: #333;
     padding: 10px;
 }
-
 
 
 #border {
