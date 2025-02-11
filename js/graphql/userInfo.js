@@ -1,11 +1,11 @@
-import { userInfoQ } from "./querys.js";
+import { userInfoQ, startAtQ } from "./querys.js";
 import { recieveData } from "./fetch.js";
 
 export async function UserInfo() {
   let Info = await recieveData(userInfoQ);
+  let start = await recieveData(startAtQ);
   let data = Info.data.user;
-  console.log(data);
-  console.log(data[0]);
+  start =  formatDate(start.data.user[0].sessions[0].started_at);
   let firstName = data[0].attrs.firstName;
   let lastName = data[0].attrs.lastName;
   let userName = firstName[0] + lastName;
@@ -15,7 +15,7 @@ export async function UserInfo() {
   div.innerHTML = `<span id="userName">${userName}</span>
         <div id="name">
             <span id="name">${firstName} , ${lastName}</span>
-            <span id="time">${formatDate(data[0].createdAt)}</span>
+            <span id="time">${start}</span>
         </div>
         <div id="location">
             <span>${city}</span>

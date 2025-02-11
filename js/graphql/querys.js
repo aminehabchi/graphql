@@ -5,7 +5,13 @@ export const userInfoQ = `{
     campus
   }
 }`;
-
+export const startAtQ=`{
+ user{
+  sessions{
+    started_at
+  }
+}
+}`
 export const transactionQ = ` {
     transaction{
         type
