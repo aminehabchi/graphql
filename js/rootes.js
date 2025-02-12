@@ -16,6 +16,7 @@ import {
   userInfoSection,
   modulInfoSection,
 } from "./graphs/template.js";
+
 export const start = async () => {
   let app = document.querySelector("#app");
   if (!app) {
@@ -32,8 +33,8 @@ export const start = async () => {
     });
   } else {
     app.innerHTML =
-    userInfoSection +
-    modulInfoSection +
+      userInfoSection +
+      modulInfoSection +
       passFailSection +
       lineSection +
       pieSection;
@@ -51,3 +52,11 @@ export const start = async () => {
 };
 
 window.onload = start;
+let resizeTimeout;
+
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    location.reload();
+  }, 1000);
+});

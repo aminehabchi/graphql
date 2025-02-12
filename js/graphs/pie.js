@@ -13,16 +13,14 @@ export function createPieChart(skills) {
 }
 export function createPie(arr) {
   setupSvg(arr);
-  
+
   let min = cords.height;
   if (min > cords.width) {
     min = cords.width;
   }
-  console.log(cords.width,cords.height,min);
-  
-  
+
   let r = min * 0.43;
-  
+
   let cx = cords.width / 2;
   let cy = cords.height / 2;
 
@@ -31,15 +29,13 @@ export function createPie(arr) {
   if (end2 >= arr.length) {
     end2 = arr.length;
   }
- 
-  
+
   let angle = 360 / (end2 - start);
   let lastPointX = cx;
   let lastPointY = cy - r;
   let PathPoints = ``;
   let textPercentage = document.getElementById("textPercentage");
 
-  console.log(start, end2, arr.length);
   for (let i = start; i < end2; i++) {
     let line = Line(svg, cx, cy, lastPointX, lastPointY, "black", 1);
 
@@ -47,11 +43,8 @@ export function createPie(arr) {
 
     const matrix = line.getCTM();
 
-    const x2 = parseFloat(line.getAttribute("x2"));
-    const y2 = parseFloat(line.getAttribute("y2"));
-
-    const newX2 = matrix.a * x2 + matrix.c * y2 + matrix.e;
-    const newY2 = matrix.b * x2 + matrix.d * y2 + matrix.f;
+    const newX2 = matrix.a * lastPointX + matrix.c * lastPointY + matrix.e;
+    const newY2 = matrix.b * lastPointX + matrix.d * lastPointY + matrix.f;
 
     let scale = Number(arr[i][1]) / 100;
 
@@ -104,9 +97,9 @@ function setupSvg(arr) {
         <text class="Btn" id="Prev">Prev</text>
         <text class="Btn" id="Next">Next</text>
         `;
-        let Next = document.getElementById("Next");
-        let Prev = document.getElementById("Prev");
-        Next.addEventListener("click", () => {
+  let Next = document.getElementById("Next");
+  let Prev = document.getElementById("Prev");
+  Next.addEventListener("click", () => {
     if (end >= arr.length) {
       return;
     }

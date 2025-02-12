@@ -1,3 +1,4 @@
+import {logout} from "../auth/logout.js"
 export async function recieveData(query) {
   let JWT = localStorage.getItem("jwt");
   try {
@@ -14,11 +15,15 @@ export async function recieveData(query) {
     );
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
       return undefined;
     }
 
     const data = await response.json();
+    
+    if (data.errors){
+      logout()
+      return undefined
+    }
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);

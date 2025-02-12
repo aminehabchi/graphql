@@ -1,5 +1,9 @@
+let time;
+export function clear(){
+  clearTimeout(time)
+}
 export function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise((resolve) => (time = setTimeout(resolve, ms)));
 }
 
 export function formatBytes(bytes, decimals = 2) {

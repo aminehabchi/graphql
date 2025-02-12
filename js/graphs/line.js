@@ -1,9 +1,10 @@
-import { formatDate, sleep, getday, formatBytes } from "./helpers.js";
+import { formatDate, clear, sleep, getday, formatBytes } from "./helpers.js";
 import { Line, Circle } from "./svg.js";
 let svg;
 let cords;
 
 export async function createLineGraphs(arr, xp, level) {
+  clear();
   setupSvg();
   let text = document.getElementById("textXP");
   text.setAttribute("fill", "white");
@@ -50,7 +51,7 @@ export async function createLineGraphs(arr, xp, level) {
       continue;
     }
     text.textContent = point[0] + " +" + formatBytes(point[1]);
-    // await sleep(50);
+    await sleep(50);
 
     let day = getday(point[2]) - getday(fisrtday);
 
@@ -77,7 +78,6 @@ export async function createLineGraphs(arr, xp, level) {
   }
 }
 function setupSvg() {
-
   svg = document.getElementById("lineGraph");
   svg.innerHTML = `<text id="textXP" x="20" y="50">Wha's Up</text>`;
   svg.setAttribute("height", "500");

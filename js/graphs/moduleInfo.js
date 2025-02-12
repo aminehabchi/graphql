@@ -2,7 +2,6 @@ import { formatBytes } from "./helpers.js";
 export function moduleInfo(up, down, rank, xp, level) {
   let ratio = Math.round((up / down) * 10) / 10;
   xp = formatBytes(xp);
-  console.log(xp, rank, ratio);
   let container = document.getElementById("moduleInfo");
   container.innerHTML = `
     <table class="stats-table">

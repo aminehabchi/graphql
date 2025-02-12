@@ -113,7 +113,7 @@ body {
 
 
 .stats-table {
-   
+
     width: 100%;
     border-collapse: collapse;
     text-align: left;
@@ -236,6 +236,7 @@ body {
     #logout {
         position: static;
     }
+
     #passfail,
     #moduleInfo,
     #line,
@@ -253,6 +254,7 @@ body {
     #lineGraph {
         width: 95%;
     }
+
     .stats-table {
         font-size: 2.5vw;
     }

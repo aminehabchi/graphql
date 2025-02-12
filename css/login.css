@@ -56,3 +56,22 @@ label {
     bottom: 75px;
 }
 
+@media (max-width: 700px) {
+    #loginContainer {
+        width: 90%;
+
+    }
+
+    #msg {
+        font-size: 5vw;
+    }
+
+    #btnLogin {
+        width: 100px;
+        height: 30px;
+    }
+
+    label {
+        font-size: 3vw;
+    }
+}

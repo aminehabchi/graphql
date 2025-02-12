@@ -46,7 +46,6 @@ export async function getTransaction() {
     }
     transaction.rank = element.name;
   });
-  console.log(transaction);
   moduleInfo(
     transaction.up,
     transaction.down,
